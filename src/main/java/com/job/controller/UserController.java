@@ -26,11 +26,16 @@ public class UserController {
         userService.saveUser(user);
     }
 
-    @GetMapping
+    @GetMapping(value="/save")
     public void saveUser1() {
         User user = new User();
         user.setName("周桐");
         user.setAge(21);
         userService.saveUser(user);
+    }
+
+    @GetMapping
+    public void getUserList(){
+        userService.getUserList();
     }
 }

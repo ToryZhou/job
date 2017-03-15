@@ -6,6 +6,9 @@ import com.job.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Copyright with Patsnap company.
  * Author: Tory
@@ -19,5 +22,15 @@ public class UserService {
 
     public void saveUser(User user){
         userDao.save(user);
+    }
+
+    public void getUserList(){
+        List<User> userList = new ArrayList<>();
+        Iterable<User> all = userDao.findAll();
+
+//        while (all.iterator().hasNext()){
+//            userList.add(all.iterator().next());
+//        }
+        System.out.println(userList.size());
     }
 }
