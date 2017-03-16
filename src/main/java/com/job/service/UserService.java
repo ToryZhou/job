@@ -20,17 +20,19 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    public void saveUser(User user){
+    public void saveUser(User user) {
         userDao.save(user);
     }
 
-    public void getUserList(){
-        List<User> userList = new ArrayList<>();
-        Iterable<User> all = userDao.findAll();
+    public void deleteUser(Long id){
+        userDao.delete(id);
+    }
 
-//        while (all.iterator().hasNext()){
-//            userList.add(all.iterator().next());
-//        }
-        System.out.println(userList.size());
+    public List<User> getUserList() {
+        List<User> userList = new ArrayList<>();
+        for (User user : userDao.findAll()) {
+            userList.add(user);
+        }
+        return userList;
     }
 }
